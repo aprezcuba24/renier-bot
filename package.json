@@ -1,0 +1,8 @@
+{
+  "name": "renier-bot",
+  "version": "0.0.1",
+  "dependencies": {
+    "botkit": "^0.4.9",
+    "superscript": "^1.0.0"
+  }
+}
