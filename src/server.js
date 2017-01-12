@@ -1,5 +1,5 @@
 var http = require('http');
-const PORT=80;
+var PORT=process.env.PORT;
 function handleRequest(request, response){
   response.end('It Works!! Path Hit: ' + request.url);
 }
