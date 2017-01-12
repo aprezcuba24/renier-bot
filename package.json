@@ -6,7 +6,8 @@
   "license": "MIT",
   "main": "./server.js",
   "scripts": {
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "postinstall": "gulp postinstall"
   },
   "repository": {
     "type": "git",
@@ -24,12 +25,14 @@
   "homepage": "https://github.com/aprezcuba24/renier-bot#readme",
   "dependencies": {
     "botkit": "^0.4.9",
-    "superscript": "^1.0.0"
-  },
-  "devDependencies": {
+    "superscript": "^1.0.0",
+
     "babel-cli": "^6.18.0",
     "babel-polyfill": "^6.20.0",
     "babel-preset-env": "^1.1.8",
+    "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2"
+  },
+  "devDependencies": {
   }
 }

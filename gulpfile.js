@@ -21,4 +21,5 @@ gulp.task('watch', function () {
     gulp.watch(['src/**/*.json', 'src/**/*.html', 'src/**/*.css'], ['static-files']);
 });
 
+gulp.task('postinstall', ['compile-all', 'static-files']);
 gulp.task('default', ['watch', 'compile-all', 'static-files']);
