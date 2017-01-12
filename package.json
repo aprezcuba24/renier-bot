@@ -1,12 +1,35 @@
 {
   "name": "renier-bot",
   "version": "0.0.1",
-  "main": "index.js",
+  "description": "SlackBot example using botkit",
+  "author": "Renier Ricardo Figueredo <aprezcuba24@gmail.com>",
+  "license": "MIT",
+  "main": "./server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node dist/server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aprezcuba24/renier-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aprezcuba24/renier-bot/issues"
+  },
+  "keywords": [
+    "slackbot",
+    "bot",
+    "slack",
+    "botkit"
+  ],
+  "homepage": "https://github.com/aprezcuba24/renier-bot#readme",
   "dependencies": {
     "botkit": "^0.4.9",
     "superscript": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-env": "^1.1.8",
+    "gulp-babel": "^6.1.2"
   }
 }
