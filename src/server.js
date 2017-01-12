@@ -21,6 +21,9 @@ let bot = controller.spawn({
   token: process.env.SLACK_TOKEN
 }).startRTM();
 
-controller.hears('hello',['direct_message','direct_mention','mention'], function(bot,message) {
-  bot.reply(message,'Hello world bot.');
+controller.hears('plan',['direct_message','direct_mention','mention'], (bot,message) => {
+  bot.startConversation(message, (err,convo) => {
+    convo.say('Hello!');
+    convo.say('Have a nice day!');
+  });
 });
