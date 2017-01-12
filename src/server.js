@@ -1,7 +1,7 @@
 var http = require('http');
 var PORT=process.env.PORT;
 function handleRequest(request, response){
-  response.end('It Works!! Path Hit: ' + request.url);
+  response.end('Por ahora solo responde a la "hello"');
 }
 var server = http.createServer(handleRequest);
 server.listen(PORT, function(){
