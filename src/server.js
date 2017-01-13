@@ -37,51 +37,59 @@ if (!process.env.SLACK_TOKEN) {
   process.exit(1);
 }
 
-let Botkit = require('botkit');
-let controller = Botkit.slackbot({
+var Botkit = require('botkit')
+var controller = Botkit.slackbot({
   debug: false
 });
-let bot = controller.spawn({
-  token: process.env.SLACK_TOKEN
-}).startRTM();
 
-controller.hears('plan',['direct_message','direct_mention','mention'], (bot,message) => {
-  bot.startConversation(message, (err,convo) => {
-    convo.ask('¿Qué hiciste ayer?', [
-      {
-        pattern: 'nada',
-        callback: function(response,convo) {
-          convo.action('completed')
-        }
-      },
-      {
-        default: true,
-        callback: function(response,convo) {
-          // convo.log('save');
-          convo.next();
-        }
-      }
-    ]);
-    convo.ask('¿Algo más?', [
-      {
-        default: true,
-        callback: function(response,convo) {
-          // convo.log('save');
-          convo.repeat();
-          convo.next();
-        }
-      },
-      {
-        pattern: 'nada más',
-        callback: function(response,convo) {
-          convo.next();
-        }
-      }
-    ]);
-    convo.on('end', (convo) => {
-      if (convo.status == 'completed') {
-        bot.reply(message, 'OK! nos vemos');
-      }
-    });
-  });
+var bot = controller.spawn({
+  token: process.env.SLACK_TOKEN
 });
+
+require('./bot/index')(bot, controller);
+
+bot.startRTM((err, bot, res) => {
+  if (err)
+    throw new Error('Could not connect to Slack');
+});
+
+// controller.hears('plan',['direct_message','direct_mention','mention'], (bot,message) => {
+//   bot.startConversation(message, (err,convo) => {
+//     convo.ask('¿Qué hiciste ayer?', [
+//       {
+//         pattern: 'nada',
+//         callback: function(response,convo) {
+//           convo.action('completed')
+//         }
+//       },
+//       {
+//         default: true,
+//         callback: function(response,convo) {
+//           // convo.log('save');
+//           convo.next();
+//         }
+//       }
+//     ]);
+//     convo.ask('¿Algo más?', [
+//       {
+//         default: true,
+//         callback: function(response,convo) {
+//           // convo.log('save');
+//           convo.repeat();
+//           convo.next();
+//         }
+//       },
+//       {
+//         pattern: 'nada más',
+//         callback: function(response,convo) {
+//           convo.next();
+//         }
+//       }
+//     ]);
+//     convo.on('end', (convo) => {
+//       if (convo.status == 'completed') {
+//         bot.reply(message, 'OK! nos vemos');
+//       }
+//     });
+//   });
+// });
