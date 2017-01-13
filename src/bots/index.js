@@ -8,12 +8,12 @@ module.exports = function(bot, controller){
     bot.startConversation(message, (err,convo) => {
       convo.say('hola');
       convo.ask('¿Qué hiciste ayer?', [
-        {
-          pattern: 'nada',
-          callback: function(response,convo) {
-            convo.completed();
-          }
-        },
+        // {
+        //   pattern: 'nada',
+        //   callback: function(response,convo) {
+        //     convo.completed();
+        //   }
+        // },
         {
           default: true,
           callback: function(response,convo) {
