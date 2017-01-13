@@ -2,6 +2,8 @@ var http = require('http');
 var PORT=process.env.PORT;
 function handleRequest(request, response){
   response.end(
+    '<html>' +
+    '<body>' +
     'Responde a una conversación de este tipo' +
     '<br/>' +
     'humano: plan' +
@@ -12,7 +14,9 @@ function handleRequest(request, response){
     'bot: ¿Algo más?' +
     'humano: más nada' +
     'OK! nos vemos' +
-    '<br/>'
+    '<br/>' +
+    '</body>' +
+    '</html>'
   );
 }
 var server = http.createServer(handleRequest);
