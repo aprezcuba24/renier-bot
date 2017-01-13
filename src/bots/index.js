@@ -10,9 +10,7 @@ module.exports = function(bot, controller){
       convo.ask('¿Qué hiciste ayer?', [
         {
           pattern: 'nada',
-          callback: function(response,convo) {
-            convo.action('completed')
-          }
+          action: 'completed'
         },
         {
           default: true,
