@@ -25,7 +25,13 @@ controller.hears('plan',['direct_message','direct_mention','mention'], (bot,mess
   bot.startConversation(message, (err,convo) => {
     convo.ask('¿Qué hiciste ayer?', [
       {
-        pattern: '*',
+        pattern: 'nada',
+        callback: function(response,convo) {
+          convo.action('completed')
+        }
+      },
+      {
+        default: true,
         callback: function(response,convo) {
           convo.log('save');
           convo.next();
@@ -34,14 +40,14 @@ controller.hears('plan',['direct_message','direct_mention','mention'], (bot,mess
     ]);
     convo.ask('¿Algo más?', [
       {
-        pattern: '*',
+        default: true,
         callback: function(response,convo) {
           convo.log('save');
           convo.repeat();
         }
       },
       {
-        pattern: 'nada',
+        pattern: 'nada más',
         callback: function(response,convo) {
           convo.next();
         }
