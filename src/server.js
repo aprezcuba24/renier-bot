@@ -23,7 +23,34 @@ let bot = controller.spawn({
 
 controller.hears('plan',['direct_message','direct_mention','mention'], (bot,message) => {
   bot.startConversation(message, (err,convo) => {
-    convo.say('Hello!');
-    convo.say('Have a nice day!');
+    convo.ask('¿Qué hiciste ayer?', [
+      {
+        pattern: '*',
+        callback: function(response,convo) {
+          convo.log('save');
+          convo.next();
+        }
+      }
+    ]);
+    convo.ask('¿Algo más?', [
+      {
+        pattern: '*',
+        callback: function(response,convo) {
+          convo.log('save');
+          convo.repeat();
+        }
+      },
+      {
+        pattern: 'nada',
+        callback: function(response,convo) {
+          convo.next();
+        }
+      }
+    ]);
+    convo.on('end', (convo) => {
+      if (convo.status == 'completed') {
+        bot.reply(message, 'OK! nos vemos');
+      }
+    });
   });
 });
