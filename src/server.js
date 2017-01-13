@@ -1,7 +1,19 @@
 var http = require('http');
 var PORT=process.env.PORT;
 function handleRequest(request, response){
-  response.end('Por ahora solo responde a la "hello"');
+  response.end(
+    'Responde a una conversación de este tipo' +
+    '<br/>' +
+    'humano: plan' +
+    'bot: ¿Qué hiciste ayer?' +
+    'humano: code 1' +
+    'bot: ¿Algo más?' +
+    'humano: code 2' +
+    'bot: ¿Algo más?' +
+    'humano: más nada' +
+    'OK! nos vemos' +
+    '<br/>'
+  );
 }
 var server = http.createServer(handleRequest);
 server.listen(PORT, function(){
