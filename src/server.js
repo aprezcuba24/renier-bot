@@ -46,7 +46,7 @@ var bot = controller.spawn({
   token: process.env.SLACK_TOKEN
 });
 
-require('./bot/index')(bot, controller);
+require('./bots/index')(bot, controller);
 
 bot.startRTM((err, bot, res) => {
   if (err)
