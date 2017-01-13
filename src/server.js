@@ -33,7 +33,7 @@ controller.hears('plan',['direct_message','direct_mention','mention'], (bot,mess
       {
         default: true,
         callback: function(response,convo) {
-          convo.log('save');
+          // convo.log('save');
           convo.next();
         }
       }
@@ -42,7 +42,7 @@ controller.hears('plan',['direct_message','direct_mention','mention'], (bot,mess
       {
         default: true,
         callback: function(response,convo) {
-          convo.log('save');
+          // convo.log('save');
           convo.repeat();
         }
       },
