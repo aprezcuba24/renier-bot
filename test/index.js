@@ -11,15 +11,15 @@ describe("controller tests",()=>{
 
   it('hello', (done) => {
     botMock.testRunner
-      .push('plan')
-      .get('hola')
-      .get('¿Qué hiciste ayer?')
-      .push('trabajé en discrepante')
-      .get('¿Algo más?')
-      .push('trabajé en dressingLab')
-      .get('¿Algo más?')
-      .push('nada más')
-      .get('OK! nos vemos')
+      .human('plan')
+      .bot('hola')
+      .bot('¿Qué hiciste ayer?')
+      .human('trabajé en discrepante')
+      .bot('¿Algo más?')
+      .human('trabajé en dressingLab')
+      .bot('¿Algo más?')
+      .human('nada más')
+      .bot('OK! nos vemos')
       .start(done)
     ;
   });

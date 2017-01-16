@@ -15,19 +15,19 @@ describe("simple controller",() => {
 
   it('hello', (done) => {
     botMock.testRunner
-      .push('hello')
-      .get('hello human')
+      .human('hello')
+      .bot('hello human')
       .start(done)
     ;
   });
 
   it('hi bot', (done) => {
     botMock.testRunner
-      .push('hi bot')
-      .get('hi human')
-      .get('How are you?')
-      .push('fine thanks you, and you?')
-      .get('fine thanks')
+      .human('hi bot')
+      .bot('hi human')
+      .bot('How are you?')
+      .human('fine thanks you, and you?')
+      .bot('fine thanks')
       .start(done)
     ;
   });

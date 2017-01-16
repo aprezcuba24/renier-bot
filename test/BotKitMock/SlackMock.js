@@ -90,7 +90,7 @@ module.exports = (options) => {
       }
     });
 
-    conv.push = function (msg) {
+    conv.human = function (msg) {
       this._messages.push({
         type: 'push',
         text:  msg
@@ -99,7 +99,7 @@ module.exports = (options) => {
       return this;
     };
 
-    conv.get = function (msg) {
+    conv.bot = function (msg) {
       this._messages.push({
         type: 'get',
         text:  msg
